@@ -1,4 +1,4 @@
-const { fetchMyIP } = require('./iss'); // Replace 'your_module' with the actual module filename
+const { fetchMyIP, fetchCoordsByIP } = require('./iss'); // Replace 'your_module' with the actual module filename
 
 fetchMyIP((error, ip) => {
   if (error) {
@@ -6,5 +6,11 @@ fetchMyIP((error, ip) => {
     return;
   }
   console.log("It worked!, Returned IP:", ip);
-});
 
+  fetchCoordsByIP(ip, (latitude, longitude) => {
+
+    console.log(`latitude: ${latitude}, longitude: ${longitude}`);
+  
+  });
+
+});
