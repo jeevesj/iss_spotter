@@ -1,4 +1,4 @@
-const { fetchMyIP, fetchCoordsByIP } = require('./iss'); // Replace 'your_module' with the actual module filename
+const { fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes } = require('./iss'); // Replace 'your_module' with the actual module filename
 
 fetchMyIP((error, ip) => {
   if (error) {
@@ -11,6 +11,16 @@ fetchMyIP((error, ip) => {
 
     console.log(`latitude: ${latitude}, longitude: ${longitude}`);
   
+
+
+    fetchISSFlyOverTimes(latitude, longitude, (error, flyoverTimes) => {
+      if (error) {
+        console.log("Error:", error);
+      } else {
+        console.log("ISS Flyover Times:", flyoverTimes);
+      }
+    });
+
   });
 
 });
